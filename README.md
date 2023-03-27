@@ -1,6 +1,11 @@
 # citation_finder
 Query free API to find paper citing another paper
 
+## Principle Used Tools
+* Front: [Streamlit](https://streamlit.io/) 
+* Dataviz: [Plotly](https://plotly.com/python/)
+* Back: [FastAPI](https://fastapi.tiangolo.com/)
+* References: [OpenAlex](https://openalex.org/),[OpenCitation](opencitations.net/)
 ## Installation
 1. clone the project 
 ```console
@@ -31,3 +36,4 @@ pip3 install -r requirements.txt
 You have access to the website at: http://localhost:8501/
 
 ## Usage
+
