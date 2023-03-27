@@ -22,7 +22,7 @@ def request_OpenAlex(doi:str):
     openalex_id = doi_to_OpenAlexId(doi)
     print(openalex_id)
     if not openalex_id:
-        raise HTTPException(status_code=500, detail="DOI couldn't be convert to OpenAlexID verify input")
+        raise HTTPException(status_code=500, detail="Error 500: DOI couldn't be convert to OpenAlexID. Please verify input")
 
     base_url = "https://api.openalex.org/works"
     ret = {}
@@ -37,9 +37,7 @@ def request_OpenAlex(doi:str):
             "page":page_number
         }
         request = requests.get(base_url,params=query_param)
-        print(request.url)
         if request.status_code == 200:
-            print()
             request_json = request.json()
             for res in request_json["results"]:
                 title = res["title"]
@@ -63,8 +61,7 @@ def request_OpenAlex(doi:str):
             else:
                 page_number += 1
         else:
-            error_message = f"Error {request.status_code}: Search failed, please verify your input"
-            raise HTTPException(status_code=request.status_code, detail=error_message)
+            raise HTTPException(status_code=request.status_code, detail="Error {request.status_code}: Please verify your input or try later")
     
     json_response = jsonable_encoder(ret)
     return JSONResponse(content=json_response)
