@@ -16,6 +16,18 @@ def query_openalex(doi):
     request = requests.get(url)
     return request
 
+@st.cache_data(show_spinner=False)
+def query_coci(doi):
+    url = f"http://localhost:8000/get_citations/coci/?doi={doi}"
+    request = requests.get(url)
+    return request
+
+@st.cache_data(show_spinner=False)
+def query_poci(doi):
+    url = f"http://localhost:8000/get_citations/poci/?doi={doi}"
+    request = requests.get(url)
+    return request
+
 st.set_page_config(layout="wide")
 st.markdown(""" <style>
 #MainMenu {visibility: hidden;}
@@ -38,9 +50,9 @@ if st.button("Search") and doi:
         if source == "OpenAlex":
             request = query_openalex(doi)
         elif source == "OpenCitation POCI":
-            request = query_openalex(doi) 
+            request = query_poci(doi) 
         elif source == "OpenCitation COCI":
-            request = query_openalex(doi) 
+            request = query_coci(doi) 
 
 
         if request.status_code == 200:
