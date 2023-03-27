@@ -126,10 +126,11 @@ def request_poci(doi:str):
 
     doi = doi.replace("https://doi.org/","")
     pid = doi_to_pubmedID(doi)
+    print(pid)
     if not pid:
         raise HTTPException(status_code=500, detail="Error 500: DOI couldn't be convert to pubmed id. Please verify input")
 
-    url = f"https://opencitations.net/index/poci/api/v1/citations/{doi}"
+    url = f"https://opencitations.net/index/poci/api/v1/citations/{pid}"
     ret = {}
     paper_id = 1    
     request = requests.get(url)
