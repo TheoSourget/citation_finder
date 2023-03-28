@@ -38,13 +38,13 @@ You have access to the website at: http://localhost:8501/
 
 Then you can fill the DOI of the paper and choose the source from which we will search for citation of this paper.
 
-![](./ressources/input_options.png)
+![](./resources/input_options.png)
 
 
 Once the information are set click on the search button to compute the citation extraction, it can be long depending on the source and the number of citations. When the extraction is complete the list is displayed as shown below and you can download the result as a CSV file with the button below the list.
 
-![](./ressources/dataframe_result.png)
+![](./resources/dataframe_result.png)
 
 You can also see some informations about the citations below the list of citations.
 
-![](./ressources/statistics_display.png)
+![](./resources/statistics_display.png)
