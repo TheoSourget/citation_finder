@@ -68,6 +68,7 @@ if (search) or ("search_keywords" in st.session_state and st.session_state.searc
             df_year = query_api(params)
             lst_df.append(df_year)
     df_merged = pd.concat(lst_df).reset_index(drop=True)
+    df_merged = df_merged[['Title', 'DOI', 'Year', 'Abstract']]
     st.dataframe(df_merged)
     
     csv = convert_df(df_merged)
