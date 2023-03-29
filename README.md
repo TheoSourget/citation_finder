@@ -27,7 +27,7 @@ pip3 install -r requirements.txt
     streamlit run main.py 
 ```
 
-###
+### For the back:
 ```console
     cd back
     uvicorn main:app --reload
