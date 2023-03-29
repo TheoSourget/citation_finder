@@ -5,8 +5,8 @@ import requests
 import time
 import plotly.express as px
 st.set_page_config(
-    page_title="Citation Finder: Home",
-    page_icon="🏠",
+    page_title="Citation Finder",
+    page_icon="💬",
     layout="wide"
 )
 

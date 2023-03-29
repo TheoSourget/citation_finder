@@ -3,6 +3,7 @@ from streamlit_tags import st_tags
 import pandas as pd
 import numpy as np
 import requests
+import json 
 
 st.set_page_config(
     page_title="Keyword Finder",
@@ -12,8 +13,17 @@ st.set_page_config(
 
 @st.cache_data(show_spinner=False)
 def query_api(query_param):
-    df_year = pd.DataFrame()
+    url = f"http://localhost:8000/search_keywords/"
+    json_param = json.dumps(query_param, indent = 4) 
+    request = requests.get(url,data=json_param)
+    df_year = pd.DataFrame.from_dict(request.json()).T
+    df_year["Year"] = df_year['Year'].astype(str)
+
     return df_year
+
+@st.cache_data(show_spinner=False)
+def convert_df(df):
+    return df.to_csv().encode("utf-8")
 
 
 st.title('Keywords finder')
@@ -24,26 +34,38 @@ st.header("Search options")
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    concepts = st.multiselect("Concepts",["Ouais","Nope"])
+    concepts = st.multiselect("Concepts",["C89600930","C530470458"])
 with col2:
     time_period = st.slider("Time period",2000,2023,(2000,2023))
 with col3:
-    time_limit = st.number_input("Search time limit (in seconds)",format="%i",step=1)
+    timeout = st.number_input("Search time limit (in seconds)",format="%i",step=1)
 
-keywords = st_tags(label='keywords',text='Type and press enter')
+keywords = st_tags(label='Keywords',text='Type and press enter')
 search = st.button("Search")
-if search:
+if (search) or ("search_keywords" in st.session_state and st.session_state.search_keywords):
+    if "search_keywords" not in st.session_state:
+        st.session_state.search_keywords = True
+    
     lst_df = []
     
     params = {
         "concepts":concepts,
-        "keywords":keywords
+        "keywords":keywords,
+        "timeout":timeout
     }
-
-    for year in range(time_period[0],time_period[1]+1):
-        params["year"] = year
-        df_year = query_api(params)
-        lst_df.append(df_year)
-
-    df_merged = pd.concat(lst_df)
+    with st.spinner('Research in progress...'):
+        for year in range(time_period[0],time_period[1]+1):
+            params["year"] = year
+            df_year = query_api(params)
+            lst_df.append(df_year)
+    df_merged = pd.concat(lst_df).reset_index(drop=True)
     st.dataframe(df_merged)
+    
+    csv = convert_df(df_merged)
+
+    st.download_button(
+        label="Download data as CSV",
+        data=csv,
+        file_name=f'search_keywords:{keywords}_concepts:{concepts}.csv',
+        mime='text/csv',
+    )
