@@ -1,0 +1,304 @@
+concept_name,concept_id
+Computer science,C41008148
+Medicine,C71924100
+Biology,C86803240
+Physics,C121332964
+Political science,C17744445
+Chemistry,C185592680
+Philosophy,C138885662
+Engineering,C127413603
+Mathematics,C33923547
+Psychology,C15744967
+Internal medicine,C126322002
+Materials science,C192562407
+Art,C142362112
+Geography,C205649164
+Business,C144133560
+Law,C199539241
+Humanities,C15708023
+Sociology,C144024400
+Economics,C162324750
+Biochemistry,C55493867
+Quantum mechanics,C62520636
+Organic chemistry,C178790620
+Geology,C127313418
+Artificial intelligence,C154945302
+Environmental science,C39432304
+History,C95457728
+Genetics,C54355233
+Pathology,C142724271
+Ecology,C18903297
+Composite material,C159985019
+Archaeology,C166957645
+Linguistics,C41895202
+Optics,C120665830
+Programming language,C199360897
+Surgery,C141071460
+Operating system,C111919701
+Geometry,C2524010
+Epistemology,C111472728
+Statistics,C105795698
+Mechanical engineering,C78519656
+Mathematical analysis,C134306372
+Paleontology,C151730666
+Thermodynamics,C97355855
+Immunology,C203014093
+Endocrinology,C134018914
+Electrical engineering,C119599485
+Metallurgy,C191897082
+World Wide Web,C136764020
+Algorithm,C11413529
+Finance,C10138342
+Telecommunications,C76155785
+Social psychology,C77805123
+Neuroscience,C169760540
+Psychiatry,C118552586
+Botany,C59822182
+Nanotechnology,C171250308
+Chromatography,C43617362
+Environmental health,C99454951
+Mathematics education,C145420912
+Cell biology,C95444343
+Optoelectronics,C49040817
+Pure mathematics,C202444582
+Pedagogy,C19417346
+Meteorology,C153294291
+Marketing,C162853370
+Computer security,C38652104
+Radiology,C126838900
+Acoustics,C24890656
+Demography,C149923435
+Economic growth,C50522688
+Astronomy,C1276947
+Machine learning,C119857082
+Chemical engineering,C42360764
+Oceanography,C111368507
+Nursing,C159110408
+Anatomy,C105702510
+Literature,C124952713
+Cardiology,C164705383
+Mechanics,C57879066
+Pharmacology,C98274493
+Physical chemistry,C147789679
+Social science,C36289849
+Virology,C159047783
+Food science,C31903555
+Structural engineering,C66938386
+Computer network,C31258907
+Microbiology,C89423630
+Theology,C27206212
+Agronomy,C6557445
+Combinatorics,C114614502
+Intensive care medicine,C177713679
+Aerospace engineering,C146978453
+Library science,C161191863
+Geotechnical engineering,C187320778
+Computer vision,C31972630
+Art history,C52119013
+Nuclear physics,C185544564
+Visual arts,C153349607
+Gynecology,C29456083
+Public relations,C39549134
+Macroeconomics,C139719470
+Anesthesia,C42219234
+Molecular biology,C153911025
+Family medicine,C512399662
+Aesthetics,C107038049
+Medical education,C509550671
+Crystallography,C8010536
+Management,C187736073
+Zoology,C90856448
+Developmental psychology,C138496976
+Condensed matter physics,C26873012
+Cancer research,C502942594
+Waste management,C548081761
+Horticulture,C144027150
+Physical therapy,C1862650
+Stereochemistry,C71240020
+Database,C77088390
+Pediatrics,C187212893
+Psychotherapist,C542102704
+Gastroenterology,C90924648
+Inorganic chemistry,C179104552
+Evolutionary biology,C78458016
+Data mining,C124101348
+Computational biology,C70721500
+Electronic engineering,C24326235
+Data science,C2522767166
+Clinical psychology,C70410870
+Ancient history,C195244886
+Oncology,C143998085
+Cartography,C58640448
+Econometrics,C149782125
+Dentistry,C199343813
+Classical mechanics,C74650414
+Environmental chemistry,C107872376
+Mathematical optimization,C126255220
+Dermatology,C16005928
+Atomic physics,C184779094
+Applied mathematics,C28826006
+Remote sensing,C62649853
+Fishery,C505870484
+Cognitive psychology,C180747234
+Operations management,C21547014
+Astrophysics,C44870925
+Advertising,C112698675
+Psychoanalysis,C11171543
+Anthropology,C19165224
+Gerontology,C74909509
+Traditional medicine,C556039675
+Microeconomics,C175444787
+Knowledge management,C56739046
+Gender studies,C107993555
+Public administration,C3116431
+Physical medicine and rehabilitation,C99508421
+Accounting,C121955636
+Law and economics,C190253527
+Environmental planning,C91375879
+Animal science,C140793950
+Medical emergency,C545542383
+Forestry,C97137747
+Geomorphology,C114793014
+Polymer chemistry,C188027245
+Systems engineering,C201995342
+General surgery,C61434518
+Biotechnology,C150903083
+Engineering ethics,C55587333
+Statistical physics,C121864883
+Biophysics,C12554922
+Forensic engineering,C77595967
+Astrobiology,C87355193
+Environmental engineering,C87717796
+Computer graphics (images),C121684516
+Medicinal chemistry,C155647269
+Process management,C195094911
+Embedded system,C149635348
+Market economy,C34447519
+Media studies,C29595303
+Criminology,C73484699
+Communication,C46312422
+Information retrieval,C23123220
+Human–computer interaction,C107457646
+Combinatorial chemistry,C21951064
+Internet privacy,C108827166
+Automotive engineering,C171146098
+Civil engineering,C147176958
+Geochemistry,C17409809
+Obstetrics,C131872663
+Aeronautics,C178802073
+Operations research,C42475967
+Natural language processing,C204321447
+Environmental resource management,C107826830
+Nuclear medicine,C2989005
+Ophthalmology,C118487528
+Nuclear chemistry,C13965031
+Economy,C136264566
+Mineralogy,C199289684
+Discrete mathematics,C118615104
+Software engineering,C115903868
+Political economy,C138921699
+Risk analysis (engineering),C112930515
+Geodesy,C13280743
+International trade,C155202549
+Transport engineering,C22212356
+Mathematical physics,C37914503
+Climatology,C49204034
+Seismology,C165205528
+Industrial organization,C40700
+Soil science,C159390177
+Environmental ethics,C95124753
+Photochemistry,C75473681
+Orthodontics,C29694066
+Theoretical computer science,C80444323
+Audiology,C548259974
+Distributed computing,C120314980
+Multimedia,C49774154
+Process engineering,C21880701
+Computational chemistry,C147597530
+Control engineering,C133731056
+Theoretical physics,C33332235
+Atmospheric sciences,C91586092
+Monetary economics,C556758197
+Mathematical economics,C144237770
+Bioinformatics,C60644358
+Reliability engineering,C200601418
+Classics,C74916050
+Agroforestry,C54286561
+Nuclear engineering,C116915560
+Architectural engineering,C170154142
+Natural resource economics,C175605778
+Veterinary medicine,C42972112
+Particle physics,C109214941
+Physiology,C42407357
+Simulation,C44154836
+Development economics,C47768531
+Applied psychology,C75630572
+Economic history,C6303427
+Arithmetic,C94375191
+Engineering physics,C61696701
+Pulp and paper industry,C528095902
+Urology,C126894567
+Medical physics,C19527891
+Chemical physics,C159467904
+Business administration,C178550888
+Nuclear magnetic resonance,C46141821
+Parallel computing,C173608175
+Petroleum engineering,C78762247
+Engineering management,C110354214
+Emergency medicine,C194828623
+Real-time computing,C79403827
+Speech recognition,C28490314
+Biomedical engineering,C136229726
+Computer hardware,C9390403
+Toxicology,C33070731
+Agricultural economics,C48824518
+Actuarial science,C162118730
+Socioeconomics,C45355965
+Physical geography,C100970517
+Financial economics,C106159729
+Labour economics,C145236788
+Cognitive science,C188147891
+Regional science,C148383697
+Optometry,C119767625
+Economic geography,C26271046
+Andrology,C16685009
+Ethnology,C2549261
+Geophysics,C8058405
+Demographic economics,C4249254
+Engineering drawing,C199639397
+Polymer science,C126348684
+Genealogy,C53553401
+Manufacturing engineering,C117671659
+Public economics,C100001284
+Marine engineering,C199104240
+Radiochemistry,C177322064
+Management science,C539667460
+Religious studies,C24667770
+Agricultural science,C37621935
+Economic system,C74363100
+Mining engineering,C16674752
+Environmental economics,C134560507
+Financial system,C73283319
+Environmental protection,C526734887
+Water resource management,C524765639
+Biochemical engineering,C183696295
+International economics,C18547055
+Computational physics,C30475298
+Earth science,C1965285
+Quantum electrodynamics,C3079626
+Economic policy,C105639569
+Commerce,C54750564
+Keynesian economics,C165556158
+Petrology,C5900021
+Molecular physics,C41999313
+Positive economics,C118084267
+Construction engineering,C107053488
+Biological system,C186060115
+Agricultural engineering,C88463610
+Neoclassical economics,C133425853
+Welfare economics,C549774020
+Computer architecture,C118524514
+Industrial engineering,C13736549
+Computational science,C459310
+Computer engineering,C113775141
+Classical economics,C167562979

@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import requests
 import json 
+import csv
 
 st.set_page_config(
     page_title="Keyword Finder",
@@ -32,9 +33,15 @@ st.write("Keywords finder is a tool to ther a list of paper related to general c
 st.markdown('---')
 st.header("Search options")
 
+
+concepts_dict = {}
+csv_reader = csv.DictReader(open('./front/res/concepts.csv'))
+for l in csv_reader:
+    concepts_dict[l["concept_name"]] = l["concept_id"]
+
 col1, col2, col3 = st.columns(3)
 with col1:
-    concepts = st.multiselect("Concepts",["C89600930","C530470458"])
+    concepts_id = st.multiselect("Concepts",list(concepts_dict.keys()))
 with col2:
     time_period = st.slider("Time period",2000,2023,(2000,2023))
 with col3:
@@ -43,6 +50,8 @@ with col3:
 keywords = st_tags(label='Keywords',text='Type and press enter')
 search = st.button("Search")
 if (search) or ("search_keywords" in st.session_state and st.session_state.search_keywords):
+    
+    concepts = [concepts_dict[c_id] for c_id in concepts_id]
     if "search_keywords" not in st.session_state:
         st.session_state.search_keywords = True
     
