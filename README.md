@@ -24,7 +24,7 @@ pip3 install -r requirements.txt
 ### For the front:
 ```console
     cd front
-    streamlit run main.py 
+    streamlit run Home.py 
 ```
 
 ### For the back:

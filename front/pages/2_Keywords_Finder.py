@@ -35,7 +35,7 @@ st.header("Search options")
 
 
 concepts_dict = {}
-csv_reader = csv.DictReader(open('./front/res/concepts.csv'))
+csv_reader = csv.DictReader(open('./res/concepts.csv'))
 for l in csv_reader:
     concepts_dict[l["concept_name"]] = l["concept_id"]
 
