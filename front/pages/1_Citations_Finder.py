@@ -5,6 +5,12 @@ import requests
 import time
 import plotly.express as px
 
+st.set_page_config(
+    page_title="Citations Finder",
+    page_icon="💬",
+    layout="wide"
+)
+
 pd.options.plotting.backend = "plotly"
 
 @st.cache_data(show_spinner=False)
@@ -31,15 +37,8 @@ def query_poci(doi):
     request = requests.get(url)
     return request
 
-st.set_page_config(layout="wide")
-# st.markdown(""" <style>
-# #MainMenu {visibility: hidden;}
-# footer {visibility: hidden;}
-# </style> """, unsafe_allow_html=True)
-
-st.title('Citation finder')
-st.write('Citation finder is a tool to gather the list of paper citing another one using multiple sources such as OpenAlex and OpenCitation')
-
+st.title('Citations finder')
+st.write('Citations finder is a tool to gather the list of paper citing another one using multiple sources such as OpenAlex and OpenCitation')
 st.markdown('---')
 st.header("Find the citations")
 doi = st.text_input(label="DOI :")
