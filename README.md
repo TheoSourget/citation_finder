@@ -1,7 +1,7 @@
 # citation_finder
 Query free API to find paper citing another paper
 
-## Principle Used Tools
+## Main Tools Used
 * Front: [Streamlit](https://streamlit.io/) 
 * Dataviz: [Plotly](https://plotly.com/python/)
 * Back: [FastAPI](https://fastapi.tiangolo.com/)
