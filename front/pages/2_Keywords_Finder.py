@@ -11,6 +11,7 @@ st.set_page_config(
     page_icon="💬",
     layout="wide"
 )
+st.session_state.search = False
 
 @st.cache_data(show_spinner=False)
 def query_api(query_param):
@@ -51,7 +52,7 @@ search = st.button("Search")
 if (search) or ("search_keywords" in st.session_state and st.session_state.search_keywords):
     
     concepts = [concepts_dict[c_id] for c_id in concepts_id]
-    if "search_keywords" not in st.session_state:
+    if not st.session_state.search_keywords:
         st.session_state.search_keywords = True
     
     lst_df = []

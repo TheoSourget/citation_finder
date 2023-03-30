@@ -10,6 +10,7 @@ st.set_page_config(
     page_icon="💬",
     layout="wide"
 )
+st.session_state.search_keywords = False
 
 pd.options.plotting.backend = "plotly"
 
@@ -45,7 +46,7 @@ doi = st.text_input(label="DOI :")
 source = st.selectbox("Source to use :",["OpenAlex","OpenCitation POCI","OpenCitation COCI"])
 
 if (st.button("Search") and doi) or ("search" in st.session_state and st.session_state.search):
-    if "search" not in st.session_state:
+    if not st.session_state.search:
         st.session_state.search = True
 
     st.header("Search Results")

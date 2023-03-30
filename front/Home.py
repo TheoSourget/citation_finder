@@ -9,6 +9,8 @@ st.set_page_config(
     page_icon="💬",
     layout="wide"
 )
+st.session_state.search_keywords = False
+st.session_state.search = False
 
 pd.options.plotting.backend = "plotly"
 
