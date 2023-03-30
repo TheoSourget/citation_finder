@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI,HTTPException,Body
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse

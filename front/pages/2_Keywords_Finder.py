@@ -15,7 +15,7 @@ st.session_state.search = False
 
 @st.cache_data(show_spinner=False)
 def query_api(query_param):
-    url = f"http://localhost:8000/search_keywords/"
+    url = f"http://backend:8000/search_keywords/"
     json_param = json.dumps(query_param, indent = 4) 
     request = requests.get(url,data=json_param)
     df_year = pd.DataFrame.from_dict(request.json()).T

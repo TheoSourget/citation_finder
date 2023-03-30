@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: front
+    ports:
+      - 8501:8501
+    depends_on:
+      - backend
+    volumes:
+        - ./front:/app
+
+  backend:
+    build: back
+    ports:
+      - 8000:8000
+    volumes:
+      - ./back:/app
