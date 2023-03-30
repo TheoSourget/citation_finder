@@ -7,31 +7,23 @@ Query free API to find paper citing another paper
 * Back: [FastAPI](https://fastapi.tiangolo.com/)
 * References: [OpenAlex](https://openalex.org/),[OpenCitation](opencitations.net/)
 ## Installation
+You'll we need to have docker: 
+[See how to install docker here](https://docs.docker.com/get-docker/)
+
 1. clone the project 
 ```console
 git clone https://github.com/TheoSourget/citation_finder.git
 ```
-2. install requirements
+2. launch with docker
 ```console
 cd citation_finder
-pip3 install -r requirements.txt
+docker-compose up -d --build
 ```
-
+3. To stop the website
+```console
+docker-compose down
+```
 ---
-
-## Launch
-
-### For the front:
-```console
-    cd front
-    streamlit run Home.py 
-```
-
-### For the back:
-```console
-    cd back
-    uvicorn main:app --reload
-```
 
 ## How to use it ?
 You have access to the website at: http://localhost:8501/
