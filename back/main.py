@@ -222,7 +222,7 @@ def search_keywords(params: dict = Body(...)):
                     # Search for keyword in the abstract
                     if keywords:
                         for k in keywords:
-                            if k in str_abstract:
+                            if k.lower() in str_abstract:
                                 ret[id_paper] = {}
                                 ret[id_paper]["Title"] = title
                                 ret[id_paper]["DOI"] = paper["doi"]

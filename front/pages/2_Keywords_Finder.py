@@ -18,7 +18,6 @@ def query_api(query_param):
     json_param = json.dumps(query_param, indent = 4) 
     request = requests.get(url,data=json_param)
     df_year = pd.DataFrame.from_dict(request.json()).T
-    df_year["Year"] = df_year['Year'].astype(str)
 
     return df_year
 
@@ -68,14 +67,18 @@ if (search) or ("search_keywords" in st.session_state and st.session_state.searc
             df_year = query_api(params)
             lst_df.append(df_year)
     df_merged = pd.concat(lst_df).reset_index(drop=True)
-    df_merged = df_merged[['Title', 'DOI', 'Year', 'Abstract']]
-    st.dataframe(df_merged)
-    
-    csv = convert_df(df_merged)
+    if not df_merged.empty:
+        df_merged["Year"] = df_merged['Year'].astype(str)
+        df_merged = df_merged[['Title', 'DOI', 'Year', 'Abstract']]
+        st.dataframe(df_merged)
+        
+        csv = convert_df(df_merged)
 
-    st.download_button(
-        label="Download data as CSV",
-        data=csv,
-        file_name=f'search_keywords:{keywords}_concepts:{concepts}.csv',
-        mime='text/csv',
-    )
+        st.download_button(
+            label="Download data as CSV",
+            data=csv,
+            file_name=f'search_keywords:{keywords}_concepts:{concepts}.csv',
+            mime='text/csv',
+        )
+    else:
+        st.error("No result found")
