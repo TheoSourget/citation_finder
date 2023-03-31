@@ -12,7 +12,9 @@ st.set_page_config(
     layout="wide"
 )
 st.session_state.search = False
-
+if "search_keywords" not in st.session_state:
+        st.session_state.search_keywords = False
+        
 @st.cache_data(show_spinner=False)
 def query_api(query_param):
     url = f"http://backend:8000/search_keywords/"

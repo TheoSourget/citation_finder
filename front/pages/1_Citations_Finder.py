@@ -16,7 +16,8 @@ st.set_page_config(
     layout="wide"
 )
 st.session_state.search_keywords = False
-
+if "search" not in st.session_state:
+        st.session_state.search = False
 pd.options.plotting.backend = "plotly"
 
 @st.cache_data(show_spinner=False)
