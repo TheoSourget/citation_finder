@@ -68,9 +68,10 @@ if (st.button("Search") and doi) or ("search" in st.session_state and st.session
         r_json = request.json()
         df = pd.DataFrame.from_dict(r_json).T
         df["Year"] = df['Year'].astype(str)
-        csv = convert_df(df)
+        df_plot = df[['Title','DOI','Year']]
+        csv = convert_df(df_plot)
 
-        st.dataframe(df,use_container_width=True)
+        st.dataframe(df_plot,use_container_width=True)
 
         st.download_button(
             label="Download data as CSV",
