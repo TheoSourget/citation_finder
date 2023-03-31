@@ -36,6 +36,23 @@ def pubmedid_to_doi(pid):
         doi = r_json["records"][0]["doi"]
     return doi
 
+
+def reconstruct_abstract(paper):
+    # Maximum size of the abstract, if the paper abstarct is longer it will be truncated
+    abstract = np.full(2500,"",dtype=object)
+    # The "abstract_inverted_index" field is a dictionnary with word as key and locations of this word in the abstract
+    # So we fill the abstarct variable above at the index of the word to reconstruct the abstract
+    if paper["abstract_inverted_index"]:
+        for w in paper["abstract_inverted_index"]:
+            for indices in paper["abstract_inverted_index"][w]:
+                if indices < 2500:
+                    abstract[indices] = ''.join(filter(str.isalnum, w)).lower()
+        # Remove empty location mostly due to a shorter abstract 
+        abstract = abstract[abstract != ""]
+        #Convert array to string
+    str_abstract = ' '.join(abstract)
+    return str_abstract
+
 @app.get("/get_citations/openalex/")
 def request_OpenAlex(doi:str):
 
@@ -58,21 +75,23 @@ def request_OpenAlex(doi:str):
         request = requests.get(base_url,params=query_param)
         if request.status_code == 200:
             request_json = request.json()
-            for res in request_json["results"]:
-                title = res["title"]
+            for paper in request_json["results"]:
+                title = paper["title"]
                 if title:
                     title = title.replace(",","")
                     title = title.replace("\n","")
                 
-                doi = res["doi"]
+                doi = paper["doi"]
                 
-                year = res["publication_year"]
+                year = paper["publication_year"]
                 
+                str_abstract = reconstruct_abstract(paper)
+
                 ret[paper_id] = {}
                 ret[paper_id]["Title"]=title
                 ret[paper_id]["DOI"]=doi
                 ret[paper_id]["Year"]=year
-
+                ret[paper_id]["Abstract"] = str_abstract
                 paper_id += 1
             
             if not request_json["results"]:
@@ -201,18 +220,8 @@ def search_keywords(params: dict = Body(...)):
             else:
                 # For each paper in the current page
                 for paper in r_json["results"]:
-                    # Maximum size of the abstract, if the paper abstarct is longer it will be truncated
-                    abstract = np.full(2500,"",dtype=object)
-                    # The "abstract_inverted_index" field is a dictionnary with word as key and locations of this word in the abstract
-                    # So we fill the abstarct variable above at the index of the word to reconstruct the abstract
-                    for w in paper["abstract_inverted_index"]:
-                        for indices in paper["abstract_inverted_index"][w]:
-                            if indices < 2500:
-                                abstract[indices] = ''.join(filter(str.isalnum, w)).lower()
-                    # Remove empty location mostly due to a shorter abstract 
-                    abstract = abstract[abstract != ""]
-                    #Convert array to string
-                    str_abstract = ' '.join(abstract)
+                    
+                    str_abstract = reconstruct_abstract(paper)
 
                     #Get title and remove "," and "\n" that will create problem in the result csv 
                     title = paper["title"]
@@ -229,6 +238,7 @@ def search_keywords(params: dict = Body(...)):
                                 ret[id_paper]["DOI"] = paper["doi"]
                                 ret[id_paper]["Year"] = paper["publication_year"]
                                 ret[id_paper]["Abstract"] = str_abstract
+                                ret[id_paper]["Full Text"] = paper["open_access"]["oa_url"]
                                 id_paper += 1
                                 break
                     else:
@@ -237,8 +247,10 @@ def search_keywords(params: dict = Body(...)):
                         ret[id_paper]["DOI"] = paper["doi"]
                         ret[id_paper]["Year"] = paper["publication_year"]
                         ret[id_paper]["Abstract"] = str_abstract
+                        ret[id_paper]["Full Text"] = paper["open_access"]["oa_url"]
                         id_paper += 1
 
+                        
                     if time.time() - time_begin > timeout:
                         next_page = False
                         break

@@ -70,7 +70,8 @@ if (search) or ("search_keywords" in st.session_state and st.session_state.searc
     df_merged = pd.concat(lst_df).reset_index(drop=True)
     if not df_merged.empty:
         df_merged["Year"] = df_merged['Year'].astype(str)
-        df_merged = df_merged[['Title', 'DOI', 'Year', 'Abstract']]
+        df_merged = df_merged[['Title', 'DOI', 'Year', 'Abstract','Full Text']]
+
         st.dataframe(df_merged)
         
         csv = convert_df(df_merged)

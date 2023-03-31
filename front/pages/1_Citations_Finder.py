@@ -4,6 +4,11 @@ import numpy as np
 import requests
 import time
 import plotly.express as px
+from wordcloud import WordCloud
+
+import nltk
+nltk.download("stopwords")
+from nltk.corpus import stopwords
 
 st.set_page_config(
     page_title="Citations Finder",
@@ -93,6 +98,25 @@ if (st.button("Search") and doi) or ("search" in st.session_state and st.session
         )
         fig.update_xaxes(type='category')
         st.plotly_chart(fig,use_container_width=True)
+
+        if source == "OpenAlex":
+            st.subheader("Most present words in the abstracts")
+            text = ' '.join(df["Abstract"])
+            stop_words = list(stopwords.words("english"))
+
+            #Plot
+            wordcloud = WordCloud(stopwords=stop_words,background_color="white",width=1500, height=400).generate(text)
+
+            fig = px.imshow(wordcloud)
+            fig.update_xaxes(visible=False)
+            fig.update_yaxes(visible=False)
+            fig.update_layout(showlegend=False)
+            fig.update_traces(
+                hovertemplate=None,
+                hoverinfo="skip"
+            )
+            st.plotly_chart(fig,use_container_width=True)
+
     else:
         st.error(f"{request.json()['detail']}")
 
