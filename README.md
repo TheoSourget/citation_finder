@@ -36,7 +36,8 @@ docker-compose down
 ## How to use it ?
 You have access to the website at: http://localhost:8501/
 
-Then you can fill the DOI of the paper and choose the source from which we will search for citation of this paper.
+### Citation finder
+In this section, you can fill the DOI of the paper and choose the source from which we will search for citation of this paper.
 
 ![](./resources/input_options.png)
 
@@ -48,3 +49,17 @@ Once the information are set click on the search button to compute the citation 
 You can also see some informations about the citations below the list of citations.
 
 ![](./resources/statistics_display.png)
+
+
+### Keywords research
+
+In this section, you can search for papers using concepts/tags and/or keywords in the abstract. This section only use the OpenAlex API to find the abstract.
+
+First choose the [concepts](https://docs.openalex.org/api-entities/concepts) you want to find, if you select multiple tags papers will have to respect all of them.
+You can then select the time period to search for and a Search time limit. Note that the time limit is for a year not the whole selected period.
+
+And finally you can input some keywords to search for in the abstract. If you put multiple keywords, a paper only have to respect one of them to be listed in the results
+
+![](./resources/keywords_research.png)
+
+You'll find in the list the abstract of the paper as well as a link to an open access version of the full text if it exists.
