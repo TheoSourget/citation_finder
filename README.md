@@ -7,9 +7,17 @@ Query free API to find paper citing another paper
 * Back: [FastAPI](https://fastapi.tiangolo.com/)
 * References: [OpenAlex](https://openalex.org/),[OpenCitation](opencitations.net/)
 ## Installation
+
+### Prerequisite:
 You'll we need to have docker: 
 [See how to install docker here](https://docs.docker.com/get-docker/)
 
+You'll also need docker-compose:
+```console
+sudo apt install docker-compose
+```
+
+### Install and lauch the website:
 1. clone the project 
 ```console
 git clone https://github.com/TheoSourget/citation_finder.git
