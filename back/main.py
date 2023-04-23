@@ -58,7 +58,7 @@ def request_OpenAlex(doi:str):
 
     openalex_id = doi_to_OpenAlexId(doi)
     if not openalex_id:
-        raise HTTPException(status_code=500, detail="Error 500: DOI couldn't be convert to OpenAlexID. Please verify input")
+        raise HTTPException(status_code=500, detail="Error 500: DOI couldn't be convert to OpenAlexID. Can be caused by a wrong DOI or because paper is not in OpenAlex")
 
     base_url = "https://api.openalex.org/works"
     ret = {}
