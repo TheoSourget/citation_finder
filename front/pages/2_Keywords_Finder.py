@@ -43,13 +43,13 @@ for l in csv_reader:
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    concepts_id = st.multiselect("Concepts",list(concepts_dict.keys()))
+    concepts_id = st.multiselect("Concepts",list(concepts_dict.keys()),help="Concept of papers you're searching for. If multiple are selected, paper will need to respect every concept")
 with col2:
-    time_period = st.slider("Time period",2000,2023,(2000,2023))
+    time_period = st.slider("Time period",2000,2023,(2000,2023),help="Year of research")
 with col3:
-    timeout = st.number_input("Search time limit (in seconds)",format="%i",step=1)
+    timeout = st.number_input("Search time limit (in seconds)",format="%i",step=1,help="Time limit is for 1 year. Put 0 or negative value to disable time limit")
 
-keywords = st_tags(label='Keywords',text='Type and press enter')
+keywords = st_tags(label='Keywords',text='Type a keyword and press enter')
 search = st.button("Search")
 if (search) or ("search_keywords" in st.session_state and st.session_state.search_keywords):
     
