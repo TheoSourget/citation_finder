@@ -194,6 +194,9 @@ def search_keywords(params: dict = Body(...)):
     year = params["year"]
     keywords = params["keywords"]
     timeout = params["timeout"]
+    if timeout <= 0:
+        timeout = np.inf
+
     query_url = "https://api.openalex.org/works"
     filter_str = ""
     for c in concepts:
