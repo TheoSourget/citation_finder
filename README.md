@@ -25,11 +25,11 @@ git clone https://github.com/TheoSourget/citation_finder.git
 2. launch with docker
 ```console
 cd citation_finder
-docker-compose up -d --build
+docker compose up -d --build
 ```
 3. To stop the website
 ```console
-docker-compose down
+docker compose down
 ```
 ---
 
